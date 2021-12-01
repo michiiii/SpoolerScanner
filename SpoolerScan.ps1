@@ -722,5 +722,6 @@ $rprn = New-Object PingCastle.ExtractedCode.rprn
 
 #RSAT required
 Get-ADDomainController -filter * | ForEach-Object { 
+	Write-Host "Checking if print spooler is enabled on DC: $($dc)" 
 	$rprn.CheckIfTheSpoolerIsActive($_.Name) 
 }
