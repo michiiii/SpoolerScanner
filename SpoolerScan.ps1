@@ -722,6 +722,6 @@ $rprn = New-Object PingCastle.ExtractedCode.rprn
 Write-Output "Spooler Scan check"
 #RSAT required
 Get-ADDomainController -filter * | ForEach-Object { 
-	Write-Output $dcname
+	Write-Output $_.Name
 	$rprn.CheckIfTheSpoolerIsActive($_.Name) 
 }
