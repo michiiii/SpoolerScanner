@@ -5,7 +5,6 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using System.Text;
-
 namespace PingCastle.ExtractedCode
 {
 	public class rprn
@@ -32,7 +31,6 @@ namespace PingCastle.ExtractedCode
                 
             [DllImport("Rpcrt4.dll", EntryPoint = "RpcBindingSetOption", CallingConvention = CallingConvention.StdCall, SetLastError = false)]
             private static extern Int32 RpcBindingSetOption(IntPtr Binding, UInt32 Option, IntPtr OptionValue);
-
 		[DllImport("Rpcrt4.dll", EntryPoint = "NdrClientCall2", CallingConvention = CallingConvention.Cdecl,
 		   CharSet = CharSet.Unicode, SetLastError = false)]
 		internal static extern IntPtr NdrClientCall2x64(IntPtr pMIDL_STUB_DESC, IntPtr formatString, ref IntPtr Handle);
@@ -40,11 +38,9 @@ namespace PingCastle.ExtractedCode
         [DllImport("Rpcrt4.dll", EntryPoint = "NdrClientCall2", CallingConvention = CallingConvention.Cdecl,
 			CharSet = CharSet.Unicode, SetLastError = false)]
 		private static extern IntPtr NdrClientCall2x64(IntPtr intPtr1, IntPtr intPtr2, string pPrinterName, out IntPtr pHandle, string pDatatype, ref rprn.DEVMODE_CONTAINER pDevModeContainer, int AccessRequired);
-
 		[DllImport("Rpcrt4.dll", EntryPoint = "NdrClientCall2", CallingConvention = CallingConvention.Cdecl,
 			CharSet = CharSet.Unicode, SetLastError = false)]
 		private static extern IntPtr NdrClientCall2x64(IntPtr intPtr1, IntPtr intPtr2, IntPtr hPrinter, uint fdwFlags, uint fdwOptions, string pszLocalMachine, uint dwPrinterLocal, IntPtr intPtr3);
-
 		private static byte[] MIDL_ProcFormatStringx86 = new byte[] {
 				0x00,0x48,0x00,0x00,0x00,0x00,0x00,0x00,0x08,0x00,0x32,0x00,0x00,0x00,0x00,0x00,0x08,0x00,0x44,0x01,0x08,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x70,
 				0x00,0x04,0x00,0x08,0x00,0x00,0x48,0x00,0x00,0x00,0x00,0x01,0x00,0x18,0x00,0x31,0x04,0x00,0x00,0x00,0x5c,0x08,0x00,0x40,0x00,0x46,0x06,0x08,0x05,
@@ -125,7 +121,6 @@ namespace PingCastle.ExtractedCode
 				0x01,0x00,0x00,0x00,0x08,0x00,0x00,0x00,0x3a,0x00,0x48,0x00,0x04,0x00,0x08,0x00,0x48,0x00,0x08,0x00,0x08,0x00,0x0b,0x00,0x0c,0x00,0x02,0x00,0x48,
 				0x00,0x10,0x00,0x08,0x00,0x0b,0x00,0x14,0x00,0x3e,0x00,0x70,0x00,0x18,0x00,0x08,0x00,0x00
             };
-
 		private static byte[] MIDL_ProcFormatStringx64 = new byte[] {
 				0x00,0x48,0x00,0x00,0x00,0x00,0x00,0x00,0x10,0x00,0x32,0x00,0x00,0x00,0x00,0x00,0x08,0x00,0x44,0x01,0x0a,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
 				0x00,0x70,0x00,0x08,0x00,0x08,0x00,0x00,0x48,0x00,0x00,0x00,0x00,0x01,0x00,0x30,0x00,0x31,0x08,0x00,0x00,0x00,0x5c,0x08,0x00,0x40,0x00,0x46,0x06,
@@ -210,9 +205,7 @@ namespace PingCastle.ExtractedCode
 				0x00,0x00,0x00,0x00,0x3c,0x00,0x08,0x00,0x46,0x07,0x0a,0x05,0x00,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x08,0x00,0x00,0x00,0x36,0x00,0x48,0x00,0x08,
 				0x00,0x08,0x00,0x48,0x00,0x10,0x00,0x08,0x00,0x0b,0x00,0x18,0x00,0x02,0x00,0x48,0x00,0x20,0x00,0x08,0x00,0x0b,0x00,0x28,0x00,0x3a,0x00,0x70,0x00,
 				0x30,0x00,0x08,0x00,0x00
-
         };
-
 		private static byte[] MIDL_TypeFormatStringx86 = new byte[] {
 				0x00,0x00,0x12,0x08,0x25,0x5c,0x11,0x04,0x02,0x00,0x30,0xa0,0x00,0x00,0x11,0x00,0x0e,0x00,0x1b,0x00,0x01,0x00,0x19,0x00,0x00,0x00,0x01,0x00,0x01,
 				0x5b,0x16,0x03,0x08,0x00,0x4b,0x5c,0x46,0x5c,0x04,0x00,0x04,0x00,0x12,0x00,0xe6,0xff,0x5b,0x08,0x08,0x5b,0x11,0x04,0x02,0x00,0x30,0xe1,0x00,0x00,
@@ -221,7 +214,6 @@ namespace PingCastle.ExtractedCode
 				0x14,0x00,0x00,0x00,0x01,0x00,0x10,0x00,0x10,0x00,0x12,0x00,0xc2,0xff,0x5b,0x4c,0x00,0xc9,0xff,0x5b,0x16,0x03,0x10,0x00,0x4b,0x5c,0x46,0x5c,0x0c,
 				0x00,0x0c,0x00,0x12,0x00,0xd0,0xff,0x5b,0x08,0x08,0x08,0x08,0x5b,0x00
         };
-
 		private static byte[] MIDL_TypeFormatStringx64 = new byte[] {
 				0x00,0x00,0x12,0x08,0x25,0x5c,0x11,0x04,0x02,0x00,0x30,0xa0,0x00,0x00,0x11,0x00,0x0e,0x00,0x1b,0x00,0x01,0x00,0x19,0x00,0x00,0x00,0x01,0x00,0x01,
 				0x5b,0x1a,0x03,0x10,0x00,0x00,0x00,0x06,0x00,0x08,0x40,0x36,0x5b,0x12,0x00,0xe6,0xff,0x11,0x04,0x02,0x00,0x30,0xe1,0x00,0x00,0x30,0x41,0x00,0x00,
@@ -229,7 +221,6 @@ namespace PingCastle.ExtractedCode
 				0x36,0x5c,0x5b,0x12,0x00,0xe2,0xff,0x21,0x03,0x00,0x00,0x19,0x00,0x08,0x00,0x01,0x00,0xff,0xff,0xff,0xff,0x00,0x00,0x4c,0x00,0xda,0xff,0x5c,0x5b,
 				0x1a,0x03,0x18,0x00,0x00,0x00,0x08,0x00,0x08,0x08,0x08,0x40,0x36,0x5b,0x12,0x00,0xda,0xff,0x00
         };
-
 		[SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
 		public rprn()
 		{
@@ -243,20 +234,17 @@ namespace PingCastle.ExtractedCode
 				InitializeStub(interfaceId, MIDL_ProcFormatStringx86, MIDL_TypeFormatStringx86, "\\pipe\\spoolss", 1, 0);
 			}
 		}
-
 		[SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
 		~rprn()
 		{
 			freeStub();
 		}
-
 		[StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
 		public struct DEVMODE_CONTAINER
 		{
 			Int32 cbBuf;
 			IntPtr pDevMode;
 		}
-
 		[StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
 		public struct RPC_V2_NOTIFY_OPTIONS_TYPE
 		{
@@ -267,7 +255,6 @@ namespace PingCastle.ExtractedCode
 			UInt32 Count;
 			IntPtr pFields;
 		};
-
 		[StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
 		public struct RPC_V2_NOTIFY_OPTIONS
 		{
@@ -277,7 +264,6 @@ namespace PingCastle.ExtractedCode
 			/* [unique][size_is] */
 			RPC_V2_NOTIFY_OPTIONS_TYPE pTypes;
 		};
-
 		[SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
 		public Int32 RpcOpenPrinter(string pPrinterName, out IntPtr pHandle, string pDatatype, ref DEVMODE_CONTAINER pDevModeContainer, Int32 AccessRequired)
 		{
@@ -326,7 +312,6 @@ namespace PingCastle.ExtractedCode
 			}
 			return (int)result.ToInt64();
 		}
-
 		[SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
 		public Int32 RpcClosePrinter(ref IntPtr ServerHandle)
 		{
@@ -362,7 +347,6 @@ namespace PingCastle.ExtractedCode
 			}
 			return (int)result.ToInt64();
 		}
-
 		[SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
 		public Int32 RpcRemoteFindFirstPrinterChangeNotificationEx(
 			/* [in] */ IntPtr hPrinter,
@@ -404,7 +388,6 @@ namespace PingCastle.ExtractedCode
 			}
 			return (int)result.ToInt64();
 		}
-
     
         private byte[] MIDL_ProcFormatString;
         private byte[] MIDL_TypeFormatString;
@@ -415,23 +398,19 @@ namespace PingCastle.ExtractedCode
         private GCHandle clientinterface;
         private GCHandle bindinghandle;
         private string PipeName;
-
         // important: keep a reference on delegate to avoid CallbackOnCollectedDelegate exception
         bind BindDelegate;
         unbind UnbindDelegate;
         allocmemory AllocateMemoryDelegate = AllocateMemory;
         freememory FreeMemoryDelegate = FreeMemory;
-
         // 5 seconds
         public UInt32 RPCTimeOut = 5000;
-
         [StructLayout(LayoutKind.Sequential)]
         private struct COMM_FAULT_OFFSETS
         {
             public short CommOffset;
             public short FaultOffset;
         }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1049:TypesThatOwnNativeResourcesShouldBeDisposable"), StructLayout(LayoutKind.Sequential)]
         private struct GENERIC_BINDING_ROUTINE_PAIR
         {
@@ -439,33 +418,26 @@ namespace PingCastle.ExtractedCode
             public IntPtr Unbind;
         }
         
-
         [StructLayout(LayoutKind.Sequential)]
         private struct RPC_VERSION
         {
             public ushort MajorVersion;
             public ushort MinorVersion;
-
-
             public static RPC_VERSION INTERFACE_VERSION = new RPC_VERSION(1, 0);
             public static RPC_VERSION SYNTAX_VERSION = new RPC_VERSION(2, 0);
-
             public RPC_VERSION(ushort InterfaceVersionMajor, ushort InterfaceVersionMinor)
             {
                 MajorVersion = InterfaceVersionMajor;
                 MinorVersion = InterfaceVersionMinor;
             }
         }
-
         [StructLayout(LayoutKind.Sequential)]
         private struct RPC_SYNTAX_IDENTIFIER
         {
             public Guid SyntaxGUID;
             public RPC_VERSION SyntaxVersion;
         }
-
         
-
         [StructLayout(LayoutKind.Sequential)]
         private struct RPC_CLIENT_INTERFACE
         {
@@ -478,11 +450,9 @@ namespace PingCastle.ExtractedCode
             public IntPtr Reserved;
             public IntPtr InterpreterInfo;
             public uint Flags;
-
             public static Guid IID_SYNTAX = new Guid(0x8A885D04u, 0x1CEB, 0x11C9, 0x9F, 0xE8, 0x08, 0x00, 0x2B,
                                                               0x10,
                                                               0x48, 0x60);
-
             public RPC_CLIENT_INTERFACE(Guid iid, ushort InterfaceVersionMajor, ushort InterfaceVersionMinor)
             {
                 Length = (uint)Marshal.SizeOf(typeof(RPC_CLIENT_INTERFACE));
@@ -502,7 +472,6 @@ namespace PingCastle.ExtractedCode
                 Flags = 0u;
             }
         }
-
         [StructLayout(LayoutKind.Sequential)]
         private struct MIDL_STUB_DESC
         {
@@ -531,7 +500,6 @@ namespace PingCastle.ExtractedCode
             public IntPtr ProxyServerInfo;
             public IntPtr /*NDR_EXPR_DESC*/ pExprInfo;
             // Fields up to now present in win2000 release.
-
             public MIDL_STUB_DESC(IntPtr pFormatTypesPtr, IntPtr RpcInterfaceInformationPtr,
                                     IntPtr pfnAllocatePtr, IntPtr pfnFreePtr, IntPtr aGenericBindingRoutinePairsPtr)
             {
@@ -557,7 +525,6 @@ namespace PingCastle.ExtractedCode
                 pExprInfo = IntPtr.Zero;
             }
         }
-
         [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         protected void InitializeStub(Guid interfaceID, byte[] MIDL_ProcFormatString, byte[] MIDL_TypeFormatString, string pipe, ushort MajorVerson, ushort MinorVersion)
         {
@@ -565,7 +532,6 @@ namespace PingCastle.ExtractedCode
             this.MIDL_TypeFormatString = MIDL_TypeFormatString;
             PipeName = pipe;
             procString = GCHandle.Alloc(this.MIDL_ProcFormatString, GCHandleType.Pinned);
-
             RPC_CLIENT_INTERFACE clientinterfaceObject = new RPC_CLIENT_INTERFACE(interfaceID, MajorVerson, MinorVersion);
             GENERIC_BINDING_ROUTINE_PAIR bindingObject = new GENERIC_BINDING_ROUTINE_PAIR();
             // important: keep a reference to avoid CallbakcOnCollectedDelegate Exception
@@ -573,7 +539,6 @@ namespace PingCastle.ExtractedCode
             UnbindDelegate = Unbind;
             bindingObject.Bind = Marshal.GetFunctionPointerForDelegate((bind)BindDelegate);
             bindingObject.Unbind = Marshal.GetFunctionPointerForDelegate((unbind)UnbindDelegate);
-
             COMM_FAULT_OFFSETS commFaultOffset = new COMM_FAULT_OFFSETS();
             commFaultOffset.CommOffset = -1;
             commFaultOffset.FaultOffset = -1;
@@ -581,16 +546,13 @@ namespace PingCastle.ExtractedCode
             clientinterface = GCHandle.Alloc(clientinterfaceObject, GCHandleType.Pinned);
             formatString = GCHandle.Alloc(MIDL_TypeFormatString, GCHandleType.Pinned);
             bindinghandle = GCHandle.Alloc(bindingObject, GCHandleType.Pinned);
-
             MIDL_STUB_DESC stubObject = new MIDL_STUB_DESC(formatString.AddrOfPinnedObject(),
                                                             clientinterface.AddrOfPinnedObject(),
                                                             Marshal.GetFunctionPointerForDelegate(AllocateMemoryDelegate),
                                                             Marshal.GetFunctionPointerForDelegate(FreeMemoryDelegate),
                                                             bindinghandle.AddrOfPinnedObject());
-
             stub = GCHandle.Alloc(stubObject, GCHandleType.Pinned);
         }
-
         [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         protected void freeStub()
         {
@@ -601,7 +563,6 @@ namespace PingCastle.ExtractedCode
             bindinghandle.Free();
             stub.Free();
         }
-
         delegate IntPtr allocmemory(int size);
         [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         protected static IntPtr AllocateMemory(int size)
@@ -610,7 +571,6 @@ namespace PingCastle.ExtractedCode
             //Trace.WriteLine("allocating " + memory.ToString());
             return memory;
         }
-
         delegate void freememory(IntPtr memory);
         [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         protected static void FreeMemory(IntPtr memory)
@@ -618,7 +578,6 @@ namespace PingCastle.ExtractedCode
             //Trace.WriteLine("freeing " + memory.ToString());
             Marshal.FreeHGlobal(memory);
         }
-
         delegate IntPtr bind(IntPtr IntPtrserver);
         [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         protected IntPtr Bind (IntPtr IntPtrserver)
@@ -627,7 +586,6 @@ namespace PingCastle.ExtractedCode
             IntPtr bindingstring = IntPtr.Zero;
             IntPtr binding = IntPtr.Zero;
             Int32 status;
-
             Trace.WriteLine("Binding to " + server + " " + PipeName);
             status = RpcStringBindingCompose(null, "ncacn_np", server, PipeName, null, out bindingstring);
             if (status != 0)
@@ -642,7 +600,6 @@ namespace PingCastle.ExtractedCode
                 Trace.WriteLine("RpcBindingFromStringBinding failed with status 0x" + status.ToString("x"));
                 return IntPtr.Zero;
             }
-
             status = RpcBindingSetOption(binding, 12, new IntPtr(RPCTimeOut));
             if (status != 0)
             {
@@ -651,7 +608,6 @@ namespace PingCastle.ExtractedCode
             Trace.WriteLine("binding ok (handle=" + binding + ")");
             return binding;
         }
-
         delegate void unbind(IntPtr IntPtrserver, IntPtr hBinding);
         [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         protected static void Unbind(IntPtr IntPtrserver, IntPtr hBinding)
@@ -660,23 +616,19 @@ namespace PingCastle.ExtractedCode
             Trace.WriteLine("unbinding " + server);
             RpcBindingFree(ref hBinding);
         }
-
         [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         protected IntPtr GetProcStringHandle(int offset)
         {
             return Marshal.UnsafeAddrOfPinnedArrayElement(MIDL_ProcFormatString, offset);
         }
-
         [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         protected IntPtr GetStubHandle()
         {
             return stub.AddrOfPinnedObject();
         }
-
         [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         protected IntPtr CallNdrClientCall2x86(int offset, params IntPtr[] args)
         {
-
             GCHandle stackhandle = GCHandle.Alloc(args, GCHandleType.Pinned);
             IntPtr result;
             try
@@ -693,7 +645,6 @@ namespace PingCastle.ExtractedCode
         public bool CheckIfTheSpoolerIsActive(string computer)
 		{
 			IntPtr hHandle = IntPtr.Zero;
-
 			DEVMODE_CONTAINER devmodeContainer = new DEVMODE_CONTAINER();
 			try
 			{
@@ -711,15 +662,17 @@ namespace PingCastle.ExtractedCode
 			return false;
 		}
     }
-
 }
-
 "@
 
 Add-Type -TypeDefinition $sourceSpooler
 
 $rprn = New-Object PingCastle.ExtractedCode.rprn
+Write-Output "==================="
 Write-Output "Spooler Scan check"
+Write-Output "==================="
+Write-Output " "
+
 #RSAT required
 Get-ADDomainController -filter * | ForEach-Object { 
 	If($rprn.CheckIfTheSpoolerIsActive($_.Name)){
