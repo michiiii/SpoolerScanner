@@ -1,4 +1,8 @@
 # SpoolerScanner
+
+-- > Slightly modified to automatically retrieve all DC and perform the checks
+
+
 Check if the spooler (MS-RPRN) is remotely available with powershell/c#
 
 This is a follow-up of the DerbyCon presentation "The Unintended Risks of Trusting Active Directory @ DerbyCon 2018" made by @tifkin_ (Lee Christensen), @harmj0y(Will Schroeder), @enigma0x3(Matt Nelson)
