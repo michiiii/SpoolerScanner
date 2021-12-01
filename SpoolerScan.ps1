@@ -719,7 +719,7 @@ namespace PingCastle.ExtractedCode
 Add-Type -TypeDefinition $sourceSpooler
 
 $rprn = New-Object PingCastle.ExtractedCode.rprn
-
+Write-Host "Spooler Scan check"
 #RSAT required
 Get-ADDomainController -filter * | ForEach-Object { 
 	Write-Host "Checking if print spooler is enabled on DC: $($dc)" 
